@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FriendFace
 {
@@ -19,7 +20,12 @@ namespace FriendFace
         }
         public void AddFriend(User requestedFriend)
         {
-            try
+            if (this.friends.Contains(requestedFriend.username))
+            {
+                Console.WriteLine($"you are already friends with {requestedFriend.username}");
+                Console.WriteLine();
+            }
+            else
             {
                 this.friends.Add(requestedFriend.username);
                 requestedFriend.AcceptFriendRequest(this);
@@ -27,22 +33,17 @@ namespace FriendFace
                 Console.WriteLine($"you are now friends with {requestedFriend.username}");
                 Console.WriteLine();
             }
-            catch
-            {
-                Console.WriteLine($"you are already friends with {requestedFriend.username}");
-                Console.WriteLine();
-            }
         }
         public void AcceptFriendRequest(User userSendingFriendRequest)
         {
-            try
-            {
-                this.friends.Add(userSendingFriendRequest.username);
-            }
-            catch
+            if (this.friends.Contains(userSendingFriendRequest.username))
             {
                 Console.WriteLine($"{this.username} is already friends with you");
                 Console.WriteLine();
+            }
+            else
+            {
+                this.friends.Add(userSendingFriendRequest.username);
             }
         }
         public void RemoveFriend(User friendToRemove)

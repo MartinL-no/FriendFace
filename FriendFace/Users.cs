@@ -5,7 +5,7 @@ namespace FriendFace
 {
     public class Users
     {
-        private List<User> users;
+        public List<User> users { get; private set; }
 
         public Users()
         {
@@ -13,20 +13,12 @@ namespace FriendFace
         }
         public void Add(User user)
         {
-            try
-            {
-                this.users.Add(user);
-            }
-            catch
-            {
-                Console.WriteLine($"An account with the username {user.username} already exists");
-                Console.WriteLine();
-            }
+            this.users.Add(user);
         }
         public User GetUser(string username)
         {
             var user = this.users.Find(u => u.username == username);
-            
+
             if (user == null)
             {
                 Console.WriteLine($"An account with the username {username} does not exist");

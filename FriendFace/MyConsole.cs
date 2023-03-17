@@ -37,7 +37,7 @@ namespace FriendFace
         public static void PrintUsersProfileInformation(User user)
         {
             Console.WriteLine();
-            Console.WriteLine("You profile details are:");
+            Console.WriteLine($"{user.username}'s profile details are:");
 
             Console.WriteLine($"Name: {user.username}");
             Console.WriteLine($"Age: {user.age}");
