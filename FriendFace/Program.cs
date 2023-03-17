@@ -15,7 +15,7 @@ namespace FriendFace
 
             var loggedInUser = users.GetUser("terje");
 
-            Console.WriteLine($"Welcome to FriendFace {loggedInUser.username}\n");
+            Console.WriteLine($"Welcome to FriendFace {loggedInUser.Username}\n");
 
             while (true)
             {
@@ -47,7 +47,7 @@ namespace FriendFace
                 }
                 else if (choice.Equals("3"))
                 {
-                    MyConsole.PrintUsersFriends(loggedInUser.friends);
+                    MyConsole.PrintUsersFriends(loggedInUser.Friends);
                 }
                 else if (choice.Equals("4"))
                 {
@@ -55,7 +55,7 @@ namespace FriendFace
 
                     var selectedUser = users.GetUser(username);
 
-                    if (selectedUser != null && loggedInUser.friends.Contains(username))
+                    if (selectedUser != null && loggedInUser.Friends.Contains(username))
                     {
                         MyConsole.PrintUsersProfileInformation(selectedUser);
                     }

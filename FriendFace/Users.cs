@@ -5,19 +5,19 @@ namespace FriendFace
 {
     public class Users
     {
-        public List<User> users { get; private set; }
+        public List<User> RegisteredUsers { get; private set; }
 
         public Users()
         {
-            this.users = new List<User>();
+            RegisteredUsers = new List<User>();
         }
         public void Add(User user)
         {
-            this.users.Add(user);
+            RegisteredUsers.Add(user);
         }
         public User GetUser(string username)
         {
-            var user = this.users.Find(u => u.username == username);
+            var user = RegisteredUsers.Find(u => u.Username == username);
 
             if (user == null)
             {

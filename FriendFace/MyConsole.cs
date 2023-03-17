@@ -37,12 +37,12 @@ namespace FriendFace
         public static void PrintUsersProfileInformation(User user)
         {
             Console.WriteLine();
-            Console.WriteLine($"{user.username}'s profile details are:");
+            Console.WriteLine($"{user.Username}'s profile details are:");
 
-            Console.WriteLine($"Name: {user.username}");
-            Console.WriteLine($"Age: {user.age}");
-            Console.WriteLine($"Gender: {user.gender}");
-            Console.WriteLine($"Friends: {user.friends.Count}");
+            Console.WriteLine($"Name: {user.Username}");
+            Console.WriteLine($"Age: {user.Age}");
+            Console.WriteLine($"Gender: {user.Gender}");
+            Console.WriteLine($"Friends: {user.Friends.Count}");
             Console.WriteLine();
         }
     }

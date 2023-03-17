@@ -6,57 +6,57 @@ namespace FriendFace
 {
     public class User
     {
-        public string username { get; private set; }
-        public int age { get; private set; }
-        public string gender { get; private set; }
-        public List<string> friends { get; private set; }
+        public string Username { get; private set; }
+        public int Age { get; private set; }
+        public string Gender { get; private set; }
+        public List<string> Friends { get; private set; }
 
         public User(string username, int age, string gender)
         {
-            friends = new List<string>();
-            this.username = username;
-            this.age = age;
-            this.gender = gender;
+            Friends = new List<string>();
+            Username = username;
+            Age = age;
+            Gender = gender;
         }
         public void AddFriend(User requestedFriend)
         {
-            if (this.friends.Contains(requestedFriend.username))
+            if (Friends.Contains(requestedFriend.Username))
             {
-                Console.WriteLine($"you are already friends with {requestedFriend.username}");
+                Console.WriteLine($"you are already friends with {requestedFriend.Username}");
                 Console.WriteLine();
             }
             else
             {
-                this.friends.Add(requestedFriend.username);
+                Friends.Add(requestedFriend.Username);
                 requestedFriend.AcceptFriendRequest(this);
 
-                Console.WriteLine($"you are now friends with {requestedFriend.username}");
+                Console.WriteLine($"you are now friends with {requestedFriend.Username}");
                 Console.WriteLine();
             }
         }
         public void AcceptFriendRequest(User userSendingFriendRequest)
         {
-            if (this.friends.Contains(userSendingFriendRequest.username))
+            if (Friends.Contains(userSendingFriendRequest.Username))
             {
-                Console.WriteLine($"{this.username} is already friends with you");
+                Console.WriteLine($"{userSendingFriendRequest.Username} is already friends with you");
                 Console.WriteLine();
             }
             else
             {
-                this.friends.Add(userSendingFriendRequest.username);
+                Friends.Add(userSendingFriendRequest.Username);
             }
         }
         public void RemoveFriend(User friendToRemove)
         {
             friendToRemove.RemoveUserRequestingAsFriend(this);
-            this.friends.Remove(friendToRemove.username);
+            Friends.Remove(friendToRemove.Username);
 
-            Console.WriteLine($"you are not friends with {friendToRemove.username}");
+            Console.WriteLine($"you are not friends with {friendToRemove.Username}");
             Console.WriteLine();
         }
         public void RemoveUserRequestingAsFriend(User friendToRemove)
         {
-            this.friends.Remove(friendToRemove.username);
+            Friends.Remove(friendToRemove.Username);
         }
     }
 }
